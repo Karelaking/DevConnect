@@ -8,7 +8,6 @@ import MessageNotificationBadge from './MessageNotificationBadge';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { signOut, user } = useAuth();
     const { theme, toggleTheme } = useTheme();
     const { signInWithGithub, signOut, user, isLoading } = useAuth();
 
