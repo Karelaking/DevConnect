@@ -1,10 +1,10 @@
 # DevConnect
 
 
-<img width="1363" height="676" alt="image" src="https://github.com/user-attachments/assets/69bc4a39-05e4-4db8-a434-d55edcd43abc" />
+<img width="1363" height="676" alt="image" src="./src/assets/1.png" />
 
 
-<img width="1365" height="672" alt="image" src="https://github.com/user-attachments/assets/226afa89-5584-4b1c-a95b-d1f1a8da5e9b" />
+<img width="1365" height="672" alt="image" src="./src/assets/2.png" />
 
 
 A modern social platform for developers to share ideas, build communities, and connect with like-minded developers worldwide.
@@ -58,8 +58,9 @@ DevConnect is a full-stack web application that enables developers to:
 
 ## ✨ Features
 
-- 🔐 **GitHub Authentication** - Sign in with GitHub account
+- 🔐 **GitHub Authentication** - Sign in with GitHub account ,Gmail based authentication
 - 📝 **Create Posts** - Share posts with images and content
+- 👤 **Profile Dashboard** - View user details, email, account info, and manage sessions
 - 💬 **Nested Comments** - Multi-level comment threads with collapse/expand
 - 👥 **Communities** - Create and manage developer communities
 - ❤️ **Likes System** - Vote on posts and comments
@@ -102,14 +103,17 @@ src/
 │   ├── CreateCommunityPage.tsx    # Community creation page
 │   └── MessagesPage.tsx           # Messaging interface page
 ├── context/
-│   └── AuthContext.tsx            # Authentication context
+│   ├── AuthContext.tsx            # Authentication context
+|   └── ThemeContext.tsx           # Dark/light theme context 
 ├── hooks/
 │   └── useMessaging.ts            # Messaging-related hooks
 ├── types/
 │   └── messaging.ts               # TypeScript interfaces for messaging
 ├── supabase-client.ts             # Supabase configuration
+├── theme.css                      # Theme-related global styles
 ├── App.tsx                        # Main app component
 └── index.css                      # Global styles
+
 ```
 
 ## 🚀 Getting Started
@@ -351,10 +355,10 @@ Closes #123
 ## 🔧 Key Components
 
 ### Authentication (AuthContext.tsx)
-Manages user authentication state and GitHub OAuth login/logout.
+Manages user authentication state including email/password login, GitHub OAuth, logout, password reset, and profile session handling.
 
 ```typescript
-const { user, signInWithGithub, signOut } = useAuth();
+const { signInWithGithub, signOut, user, isLoading } = useAuth();
 ```
 
 ### Posts (PostItem.tsx, PostList.tsx)
@@ -368,6 +372,13 @@ Manages post votes with optimistic updates and cache invalidation.
 
 ### Communities (CommunityList.tsx, CommunityDisplay.tsx)
 Shows community listings and posts within communities.
+
+### User Account Pages
+- `/signin` – Email & GitHub login
+- `/signup` – Create account
+- `/reset-password` – Password recovery
+- `/profile` – User profile dashboard
+
 
 ## 📊 Database Schema
 
