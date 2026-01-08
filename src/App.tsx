@@ -11,6 +11,7 @@ import MessagesPage from './pages/MessagesPage.tsx'
 import EventsPage from './pages/EventsPage.tsx'
 import EventDetailPage from './pages/EventDetailPage.tsx'
 import CreateEventPage from './pages/CreateEventPage.tsx'
+import ScrollToTop from "./components/ScrollToTop";
 import LoginPage from './pages/LoginPage.tsx'
 import RegisterPage from './pages/RegisterPage.tsx'
 import ForgetPasswordPage from './pages/ForgotPasswordPage.tsx'
@@ -50,6 +51,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   )
 }
