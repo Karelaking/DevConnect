@@ -20,25 +20,25 @@ const Navbar = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2 font-mono font-bold text-xl hover:text-cyan-400 transition group">
               <Code2 className="w-6 h-6 text-cyan-400 group-hover:animate-pulse" />
-                <span>DEV<span className="text-cyan-400">CONNECT</span></span>
+                <span>dev<span className="text-cyan-400">connect</span></span>
             </Link>
 
             {/* Desktop nav links */}
             <div className="hidden md:flex gap-8">
-                <Link to="/" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200">~/HOME</Link>
-                <Link to="/create" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200">~/CREATE</Link>
-                <Link to="/communities" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200">~/COMMUNITIES</Link>
-                <Link to="/communities/create" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200">~/NEW-COMMUNITY</Link>
+                <Link to="/" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200">~/home</Link>
+                <Link to="/create" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200">~/create</Link>
+                <Link to="/communities" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200">~/communities</Link>
+                <Link to="/communities/create" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200">~/new-community</Link>
                 <Link to="/events" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200 relative flex items-center gap-1">
-                  ~/EVENTS
+                  ~/events
                 </Link>
                 <Link to="/messages" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200 relative flex items-center gap-1">
-                  ~/MESSAGES
+                  ~/messages
                   <MessageNotificationBadge />
                 </Link>
                 <Link to="/contributors"
                    className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200" >
-                  ~/CONTRIBUTORS
+                  ~/contributors
                  </Link>
 
             </div>
@@ -72,7 +72,7 @@ const Navbar = () => {
                             onClick={signOut} 
                             className="px-4 py-2 bg-red-900/20 hover:bg-red-900/40 border border-red-500/50 rounded-lg text-red-300 font-mono text-sm transition"
                           >
-                            LOGOUT
+                            logout
                         </button>
                     </>
                 ) : (   
@@ -81,13 +81,13 @@ const Navbar = () => {
                             to="/login"
                             className="px-4 py-2 bg-cyan-900/30 hover:bg-cyan-900/50 border border-cyan-400/50 rounded-lg text-cyan-300 font-mono text-sm transition"
                           >
-                            SIGN IN
+                            sign in
                         </Link>
                         <Link 
                             to="/register"
                             className="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-lg text-slate-900 font-mono text-sm font-bold transition"
                           >
-                            SIGN UP
+                            sign up
                         </Link>
                     </>
                 )}
@@ -114,11 +114,11 @@ const Navbar = () => {
               <Link to="/communities/create" className="block px-4 py-2 font-mono text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-900/20 rounded transition">~/new-community</Link>
               <Link to="/events" className="block px-4 py-2 font-mono text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-900/20 rounded transition relative flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
-                  ~/EVENTS
+                  ~/events
               </Link>
               <Link to="/messages" className="flex px-4 py-2 font-mono text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-900/20 rounded transition relative items-center gap-2">
                 <MessageSquare className="w-4 h-4" />
-                  ~/MESSAGES
+                  ~/messages
                 <MessageNotificationBadge />
               </Link>
             </div>
@@ -165,7 +165,7 @@ const Navbar = () => {
                     onClick={signOut} 
                     className="w-full px-4 py-2 bg-red-900/20 hover:bg-red-900/40 border border-red-500/50 rounded-lg text-red-300 font-mono text-sm transition"
                     >
-                      LOGOUT
+                      logout
                   </button>
                 </>
               ) : (
@@ -174,13 +174,13 @@ const Navbar = () => {
                     to="/login"
                     className="w-full block text-center px-4 py-2 bg-cyan-900/30 hover:bg-cyan-900/50 border border-cyan-400/50 rounded-lg text-cyan-300 font-mono text-sm transition"
                     >
-                      SIGN IN
+                      sign in
                   </Link>
                   <Link 
                     to="/register"
                     className="w-full block text-center px-4 py-2 bg-cyan-500 hover:bg-cyan-600 rounded-lg text-slate-900 font-mono text-sm font-bold transition"
                     >
-                      SIGN UP
+                      sign up
                   </Link>
                 </>
               )}

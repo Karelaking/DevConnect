@@ -59,14 +59,14 @@ const CommunityList = () => {
                     to={`/communities/${community.id}`}
                     className="group"
                 >
-                    <div className="bg-linear-to-br from-slate-900 to-slate-800 border border-cyan-900/30 rounded-lg p-6 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/10 transition-all duration-300 h-full flex flex-col">
+                    <div className="bg-gradient-to-br from-slate-100/80 via-cyan-100/60 to-blue-100/60 dark:from-slate-900 dark:via-slate-800 dark:to-slate-800 border border-cyan-400/40 dark:border-cyan-900/30 rounded-lg p-6 hover:border-cyan-400/80 hover:shadow-lg hover:shadow-cyan-400/20 dark:hover:shadow-cyan-500/10 transition-all duration-300 h-full flex flex-col" style={{backdropFilter:'blur(2px)'}}>
                         {/* Header */}
                         <div className="flex items-start justify-between mb-4">
                             <div className="flex-1">
-                                <h3 className="text-xl font-mono font-bold text-cyan-300 group-hover:text-cyan-200 transition mb-2">
+                                <h3 className="text-xl font-mono font-bold text-cyan-700 dark:text-cyan-300 group-hover:text-cyan-500 transition mb-2" style={{textShadow:'0 1px 0 #fff8'}}>
                                     {community.name}
                                 </h3>
-                                <p className="text-sm text-gray-400 font-mono">
+                                <p className="text-sm text-gray-500 dark:text-gray-400 font-mono">
                                     {new Date(community.created_at).toLocaleDateString('en-US', { 
                                         month: 'short', 
                                         day: 'numeric',
@@ -82,14 +82,14 @@ const CommunityList = () => {
                         </div>
 
                         {/* Description */}
-                        <p className="text-gray-300 text-sm mb-6 grow font-mono line-clamp-3">
+                        <p className="text-gray-800 dark:text-gray-300 text-sm mb-6 grow font-mono line-clamp-3" style={{textShadow:'0 1px 0 #fff4'}}>
                             {community.description}
                         </p>
 
                         {/* Footer */}
-                        <div className="flex items-center justify-between pt-4 border-t border-cyan-900/20">
-                            <span className="text-xs text-gray-500 font-mono">view community</span>
-                            <ArrowRight className="w-4 h-4 text-cyan-400 group-hover:translate-x-1 transition-transform" />
+                        <div className="flex items-center justify-between pt-4 border-t border-cyan-400/30 dark:border-cyan-900/20">
+                            <span className="text-xs text-cyan-700 dark:text-gray-500 font-mono font-semibold">view community</span>
+                            <ArrowRight className="w-4 h-4 text-cyan-700 dark:text-cyan-400 group-hover:translate-x-1 transition-transform" />
                         </div>
                     </div>
                 </Link>
