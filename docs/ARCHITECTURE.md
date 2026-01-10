@@ -34,7 +34,15 @@
 4. Supabase exchanges code for JWT token  
 5. Token stored in `localStorage` / session  
 6. All subsequent API calls include JWT token  
-7. Supabase RLS policies validate user permissions  
+7. Supabase RLS policies validate user permissions
+
+### Profile Management Flow
+1. User navigates to **Profile** page
+2. Profile data fetched from **Profiles** table
+3. User clicks **Edit Profile** button
+4. Form allows updating bio, location, website, social links, and avatar
+5. Image upload handled via file input with preview
+6. Updated data saved to **Profiles** table with RLS validation  
 
 ---
 
@@ -81,6 +89,7 @@
 
 ### Authentication
 - **auth.users** – Supabase-managed user accounts  
+- **Profiles** – Extended user profile information (bio, location, social links)  
 - User profiles derived from GitHub OAuth metadata  
 
 ---

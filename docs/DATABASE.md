@@ -4,6 +4,40 @@ This document describes the complete database schema for **DevConnect**, includi
 
 ---
 
+## Authentication Tables
+
+### Profiles Table
+Stores extended user profile information including social media links and personal details.
+
+```sql
+CREATE TABLE Profiles (
+  id UUID REFERENCES auth.users(id) ON DELETE CASCADE NOT NULL PRIMARY KEY,
+  full_name TEXT,
+  bio TEXT,
+  location TEXT,
+  website TEXT,
+  github TEXT,
+  twitter TEXT,
+  avatar_url TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+CREATE INDEX idx_profiles_full_name 
+ON Profiles USING gin(full_name gin_trgm_ops);
+CREATE INDEX idx_profiles_location 
+ON Profiles USING gin(location gin_trgm_ops);
+```
+
+**Purpose:** Stores extended user profile information that goes beyond basic authentication data.
+
+**Relationships:**
+- `id → auth.users(id)` (1 user → 1 profile)
+
+**Row Level Security:** Users can only view and update their own profile.
+
+---
+
 ## Core Tables
 
 ### Posts Table
