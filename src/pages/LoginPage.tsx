@@ -204,8 +204,7 @@ export default function LoginPage() {
         }}></div>
       </div>
 
-     
-
+    
       {/* Main Content */}
       <div className="relative w-full max-w-md z-10">
         {/* Glass Container */}

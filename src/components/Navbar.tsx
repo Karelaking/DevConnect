@@ -17,7 +17,7 @@ const Navbar = () => {
                     {/* Logo */}
                     <Link 
                         to="/" 
-                        className="flex items-center gap-2 font-mono font-bold text-xl hover:text-cyan-400 transition group flex-shrink-0"
+                        className="flex items-center gap-2 font-mono font-bold text-xl hover:text-cyan-400 transition group flex-shrink-0 ml-4" // 添加了 ml-4
                     >
                         <Code2 className="w-6 h-6 text-cyan-400 group-hover:animate-pulse" />
                         <span className="xs:hidden">Dev<span className="text-cyan-400">Connect</span></span>
@@ -25,7 +25,8 @@ const Navbar = () => {
 
                     {/* Desktop nav links - Center aligned */}
                     <div className="hidden md:flex items-center justify-center gap-6 flex-1 px-8">
-                        <Link to="/" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200 whitespace-nowrap">~/home</Link>
+                        {/* Home 链接添加了左边间距 */}
+                        <Link to="/" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200 whitespace-nowrap ml-4">~/home</Link>
                         <Link to="/create" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200 whitespace-nowrap">~/create</Link>
                         <Link to="/communities" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200 whitespace-nowrap">~/communities</Link>
                         <Link to="/events" className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200 whitespace-nowrap flex items-center gap-1">
@@ -35,11 +36,18 @@ const Navbar = () => {
                             ~/messages
                             <MessageNotificationBadge />
                         </Link>
-                         <Link 
+                        <Link 
                             to="/communities/create"
                             className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200 whitespace-nowrap"
                         >
                             ~/new-community
+                        </Link>
+                        {/* Contributors 链接 - 添加了右边间距 */}
+                        <Link 
+                            to="/contributors"
+                            className="font-mono text-sm text-gray-300 hover:text-cyan-400 transition duration-200 whitespace-nowrap mr-4" // 添加了 mr-4
+                        >
+                            ~/contributors
                         </Link>
                     </div>
 
@@ -115,7 +123,7 @@ const Navbar = () => {
                                 <Link 
                                     to="/" 
                                     onClick={() => setIsMenuOpen(false)}
-                                    className="block px-4 py-3 font-mono text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-900/20 rounded transition flex items-center gap-3"
+                                    className="block px-4 py-3 font-mono text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-900/20 rounded transition flex items-center gap-3 ml-4" // 添加了 ml-4
                                 >
                                     ~/home
                                 </Link>
@@ -156,6 +164,14 @@ const Navbar = () => {
                                     <MessageSquare className="w-4 h-4" />
                                     ~/messages
                                     <MessageNotificationBadge />
+                                </Link>
+                                {/* 添加的 contributors 链接 - 移动端 */}
+                                <Link 
+                                    to="/contributors" 
+                                    onClick={() => setIsMenuOpen(false)}
+                                    className="block px-4 py-3 font-mono text-sm text-gray-300 hover:text-cyan-400 hover:bg-cyan-900/20 rounded transition flex items-center gap-3 mr-4" // 添加了 mr-4
+                                >
+                                    ~/contributors
                                 </Link>
                             </div>
                         </div>

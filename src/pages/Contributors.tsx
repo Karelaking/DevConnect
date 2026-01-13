@@ -36,7 +36,7 @@ const Contributors = () => {
           onChange={(e) => setSearch(e.target.value)}
           className="
             w-full rounded-lg border border-slate-800
-            bg-slate-950 px-4 py-3 text-slate-200
+            bg-slate-950 px-4 py-3 text-black /* यहाँ text-black कर दिया */
             placeholder-slate-500
             focus:border-cyan-400 focus:outline-none
           "
