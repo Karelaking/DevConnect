@@ -8,7 +8,6 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-// ✅ सुनिश्चित करें कि ये export है
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -37,7 +36,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   );
 };
 
-// ✅ ये hook export करें
+
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {
