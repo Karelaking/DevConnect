@@ -147,9 +147,9 @@ export default function Footer() {
               {/* Social Icons */}
               <div className="flex gap-3 pt-2">
                 {[
-                  { icon: Github, color: "hover:bg-gray-800 hover:text-white", label: "GitHub", url: "https://github.com/TiwariDivya25/DevConnect" },
+                  { icon: Github, color: "hover:bg-green-800 hover:text-white", label: "GitHub", url: "https://github.com/TiwariDivya25/DevConnect" },
                   { icon: X, color: "hover:bg-black hover:text-white", label: "X", url: "https://twitter.com/devconnect" },
-                  { icon: Linkedin, color: "hover:bg-blue-600 hover:text-white", label: "LinkedIn", url: "https://linkedin.com/company/devconnect" },
+                  { icon: Linkedin, color: "hover:bg-blue-600 hover:text-white", label: "LinkedIn", url: "https://www.linkedin.com/in/tiwari-divya-in/" },
                   { icon: MessageCircle, color: "hover:bg-purple-500 hover:text-white", label: "Discord", url: "https://discord.gg/devconnect" },
                 ].map((social, i) => (
                   <a
