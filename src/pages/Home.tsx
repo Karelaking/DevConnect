@@ -47,10 +47,10 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-6xl font-bold font-mono mb-4 text-white leading-tight">
+              <h1 className="text-6xl font-bold font-mono mb-6 text-white leading-tight text-center md:text-left">
                 <span className="text-cyan-400">Dev</span>Connect
               </h1>
-              <p className="text-xl text-gray-400 font-mono mb-8">
+              <p className="text-xl text-gray-400 font-mono mb-10 text-center md:text-left">
               {displayText}
               <span className="animate-pulse text-cyan-400">|</span>
               </p>
@@ -84,15 +84,12 @@ const Home = () => {
       </div>
 
       {/* Posts Section */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-10">
-          
-        </div>
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="flex flex-col items-center">
-          <h2 className="text-4xl font-bold font-mono text-white mb-2">
+          <h2 className="text-4xl font-bold font-mono text-white mb-4 text-center">
             <span className="text-cyan-400">~/</span>recent_posts
           </h2>
-          <p className="text-gray-400 font-mono text-sm">
+          <p className="text-gray-400 font-mono text-sm mb-8 text-center">
             latest updates from the community
           </p>
           <PostList />
