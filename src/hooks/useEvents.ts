@@ -1,7 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '../supabase-client';
 import { useAuth } from './useAuth';
-import type { Event, EventWithDetails, CreateEventData, EventFilters, EventAttendee } from '../types/events';
+import type { EventWithDetails, CreateEventData, EventFilters } from '../types/events';
 
 export const useEvents = (filters?: EventFilters) => {
   return useQuery({
