@@ -272,7 +272,7 @@ export default function CreateEventPage() {
             <button
               type="button"
               onClick={() => window.history.back()}
-              className="btn-secondary-dark"
+              className="btn-secondary-dark px-6 py-3"
               disabled={isPending}
             >
               Cancel
