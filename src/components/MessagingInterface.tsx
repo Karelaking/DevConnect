@@ -85,7 +85,7 @@ const MessagingInterface = () => {
               placeholder="Search conversations..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="input-slate"
+              className="input-slate pl-10"
             />
           </div>
         </div>
