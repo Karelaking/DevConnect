@@ -1,6 +1,7 @@
 import { useState, useEffect, type FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "../supabase-client";
+import { supabase, isBackendAvailable } from "../supabase-client";
+import { useAuth } from "../hooks/useAuth";
 import { Lock } from "lucide-react";
 import { showSuccess, showError } from "../utils/toast";
 
@@ -11,20 +12,37 @@ export default function ResetPasswordPage() {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { updatePassword } = useAuth();
 
   useEffect(() => {
+    // Skip session check in demo mode or when backend is unavailable
+    if (!isBackendAvailable || !supabase) {
+      showError("Password reset is not available in demo mode.");
+      setTimeout(() => navigate("/login"), 2000);
+      return;
+    }
+
     // Check if we have a valid session from the reset link
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) {
         showError("Invalid or expired reset link. Please request a new password reset.");
       }
+    }).catch((err) => {
+      console.error("Session check error:", err);
+      showError("Failed to verify reset link. Please try again.");
     });
-  }, []);
+  }, [navigate]);
 
   const handlePasswordUpdate = async (e: FormEvent) => {
     e.preventDefault();
     setError("");
     setSuccess("");
+
+    // Check if backend is available
+    if (!isBackendAvailable) {
+      setError("Password reset is not available in demo mode.");
+      return;
+    }
 
     if (password !== confirmPassword) {
       setError("Passwords do not match");
@@ -39,14 +57,13 @@ export default function ResetPasswordPage() {
     setLoading(true);
 
     try {
-      const { error } = await supabase.auth.updateUser({
-        password: password,
-      });
+      const { error } = await updatePassword(password);
 
       if (error) {
         setError(error.message);
       } else {
         showSuccess("Password updated successfully! Redirecting.");
+        setSuccess("Password updated successfully!");
 
         setTimeout(() => {
           navigate("/login");
@@ -54,6 +71,7 @@ export default function ResetPasswordPage() {
       }
     } catch (err) {
       console.error('Password update error:', err);
+      setError("Something went wrong. Please try again.");
       showError("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
