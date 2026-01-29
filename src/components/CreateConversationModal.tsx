@@ -47,11 +47,15 @@ const CreateConversationModal = ({ onClose, onConversationCreated }: CreateConve
 
       try {
         // ✅ SECURE: Query profiles table with RLS instead of admin API
-        const { data, error } = await supabase
+        let query = supabase
           .from('Profiles')
-          .select('id, full_name, avatar_url')
-          .neq('id', currentUser?.id || '');
+          .select('id, full_name, avatar_url');
 
+        if (currentUser?.id) {
+          query = query.neq('id', currentUser.id);
+        }
+
+        const { data, error } = await query;
         if (error) throw error;
 
         // Map profiles to User format
