@@ -140,7 +140,8 @@ const CreateConversationModal = ({ onClose, onConversationCreated }: CreateConve
   const getUserDisplayName = (user: User) => {
     return user.user_metadata?.full_name ||
       user.user_metadata?.user_name ||
-      user.email;
+      user.email ||
+      user.id;
   };
 
   return (
